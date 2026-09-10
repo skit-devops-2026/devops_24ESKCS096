@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "jest --runInBand"
   },
   "keywords": [],
   "author": "Chirag Agrawal",
@@ -33,5 +34,9 @@
     "passport-local-mongoose": "^8.0.0",
     "passport-oauth2": "^1.8.0",
     "razorpay": "^2.9.2"
+  },
+  "devDependencies": {
+    "jest": "^30.5.1",
+    "supertest": "^7.2.2"
   }
 }
