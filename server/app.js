@@ -70,13 +70,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(cookieParser());
 
-main()
-  .then(() => {
-    console.log("Connection successfull :)");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+if (require.main === module) {
+  main()
+    .then(() => {
+      console.log("Connection successful :)");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/ReVibe");
@@ -87,6 +89,13 @@ app.get("/", (req, res) => {
   // console.log(req.cookies);
   res.redirect("/listings");
 });
+
+// app.get("/health", (req, res) => {
+//   res.status(200).json({ status: "ok" });
+// });
+const healthHandler = require("./utils/health");
+
+app.get("/health", healthHandler);
 
 // contact email
 app.get("/api/chats", (req, res) => {
@@ -182,6 +191,10 @@ app.use((err, req, res, next) => {
     <pre>${err.stack}</pre>
   `);
 });
-app.listen(8080, (req, res) => {
-  console.log("Server listening to port 8080");
-});
+if (require.main === module) {
+  app.listen(8080, () => {
+    console.log("Server listening on port 8080");
+  });
+}
+
+module.exports = app;
