@@ -1,36 +1,24 @@
-# <Project Name>
-
-> Replace every angle-bracket placeholder below. The hygiene check in CI will
-> fail until you do.
+# ReVibe
 
 ## Author
 
 | Roll No. | Name | GitHub username |
 |---|---|---|
-| <roll> | <name> | <username> |
+| 24ESKCS096 | Chetan Yadav | b240307-source |
 
 ## About
 
-<Two or three sentences on what this application does.>
+ReVibe is a web application where users can browse and manage listings.
+It includes user authentication and an organised interface for viewing listing information.
 
 ## Tech stack
 
-- Frontend: <e.g. React>
-- Backend: <e.g. Node.js / Express>
-- Database: <e.g. PostgreSQL>
+- Frontend: EJS, HTML, CSS, Bootstrap and JavaScript
+- Backend: Node.js and Express
+- Database: MongoDB
 
 ## Running locally
 
 ```bash
 make install
 make run
-```
-
-## Live URL
-
-<Add once M5 is done. Until then, leave as is.>
-
-## Health endpoint
-
-`GET /health` returns the running commit SHA. See `Makefile` and the milestone
-sheet for why this is required.
