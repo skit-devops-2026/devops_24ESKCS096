@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Install') {
+            steps {
+                bat 'make install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'make test'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'make build'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}
